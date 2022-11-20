@@ -1,0 +1,25 @@
+<package format="3">
+  <name>turbojpeg_compressed_image_transport</name>
+  <version>0.1.0</version>
+  <description>
+    Compressed_image_transport provides a plugin to image_transport for transparently sending images
+    encoded as JPEG by turbojpeg.
+  </description>
+  <maintainer email="border_goldenmarket@yahoo.co.jp">Daisuke Nishiamtsu</maintainer>
+  <license>BSD</license>
+
+  <author>Patrick Mihelich</author>
+  <author>Julius Kammerl</author>
+  <author email="dgossow@willowgarage.com">David Gossow</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+  <depend>libturbojpeg</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <image_transport plugin="${prefix}/turbojpeg_compressed_plugins.xml" />
+  </export>
+</package>

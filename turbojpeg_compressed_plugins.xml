@@ -1,0 +1,10 @@
+<library path="turbojpeg_compressed_image_transport">
+  <class
+    name="image_transport/turbojpeg_compressed_pub"
+    type="turbojpeg_compressed_image_transport::TurbojpegCompressedPublisher"
+    base_class_type="image_transport::PublisherPlugin">
+    <description>
+      This plugin publishes a CompressedImage using either JPEG compression by turbojpeg.
+    </description>
+  </class>
+</library>
