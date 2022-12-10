@@ -46,12 +46,12 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 
-#ifndef TURBOJPEG_COMPRESSED_IMAGE_TRANSPORT_COMPRESSION_COMMON
-#define TURBOJPEG_COMPRESSED_IMAGE_TRANSPORT_COMPRESSION_COMMON
-
-#include <memory>
+#ifndef TURBOJPEG_COMPRESSED_IMAGE_TRANSPORT__TURBOJPEG_COMPRESSED_COMMON_HPP_
+#define TURBOJPEG_COMPRESSED_IMAGE_TRANSPORT__TURBOJPEG_COMPRESSED_COMMON_HPP_
 
 #include <turbojpeg.h>
+
+#include <memory>
 
 namespace turbojpeg_compressed_image_transport
 {
@@ -80,4 +80,4 @@ inline TjhandleUniquePtr makeTjhandleUniquePtr()
 
 }  // namespace turbojpeg_compressed_image_transport
 
-#endif  // TURBOJPEG_COMPRESSED_IMAGE_TRANSPORT_COMPRESSION_COMMON
+#endif  // TURBOJPEG_COMPRESSED_IMAGE_TRANSPORT__TURBOJPEG_COMPRESSED_COMMON_HPP_

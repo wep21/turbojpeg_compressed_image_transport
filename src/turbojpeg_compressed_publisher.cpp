@@ -46,16 +46,17 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 
-#include "turbojpeg_compressed_image_transport/turbojpeg_compressed_publisher.hpp"
+#include <sstream>
+#include <vector>
 
-#include <cv_bridge/cv_bridge.h>
+#include <cv_bridge/cv_bridge.h>  // NOLINT
 #include <sensor_msgs/image_encodings.hpp>
 
 #include <rclcpp/exceptions/exceptions.hpp>
 #include <rclcpp/parameter_client.hpp>
 
-#include <sstream>
-#include <vector>
+#include "turbojpeg_compressed_image_transport/turbojpeg_compressed_publisher.hpp"
+
 
 namespace turbojpeg_compressed_image_transport
 {
@@ -117,10 +118,9 @@ void TurbojpegCompressedPublisher::publish(
     // Target image format
     std::string targetFormat;
     int jpeg_subsample{};
-    long unsigned int jpeg_size{};
-    unsigned char* jpeg_buffer = nullptr;
-    if (enc::isColor(message.encoding))
-    {
+    uint64_t jpeg_size{};
+    unsigned char * jpeg_buffer = nullptr;
+    if (enc::isColor(message.encoding)) {
       // convert color images to BGR8 format
       targetFormat = "bgr8";
       jpeg_subsample = TJPF_BGR;
@@ -133,10 +133,10 @@ void TurbojpegCompressedPublisher::publish(
     }
 
     // OpenCV-ros bridge
-    try
-    {
+    try {
       std::shared_ptr<TurbojpegCompressedPublisher> tracked_object;
-      cv_bridge::CvImageConstPtr cv_ptr = cv_bridge::toCvShare(message, tracked_object, targetFormat);
+      cv_bridge::CvImageConstPtr cv_ptr =
+        cv_bridge::toCvShare(message, tracked_object, targetFormat);
       // Compress image
       tjCompress2(
         *tjhandle_,
@@ -154,14 +154,10 @@ void TurbojpegCompressedPublisher::publish(
       compressed.data.resize(jpeg_size);
       std::copy(jpeg_buffer, jpeg_buffer + jpeg_size, compressed.data.begin());
       tjFree(jpeg_buffer);
-    }
-    catch (cv_bridge::Exception& e)
-    {
+    } catch (cv_bridge::Exception & e) {
       RCLCPP_ERROR(logger_, "%s", e.what());
       return;
-    }
-    catch (cv::Exception& e)
-    {
+    } catch (cv::Exception & e) {
       RCLCPP_ERROR(logger_, "%s", e.what());
       return;
     }
@@ -170,8 +166,9 @@ void TurbojpegCompressedPublisher::publish(
   } else {
     RCLCPP_ERROR(
       logger_,
-      "Compressed Image Transport - JPEG compression requires 8/16-bit color format (input format is: %s)",
+      "Compressed Image Transport - "
+      "JPEG compression requires 8/16-bit color format (input format is: %s)",
       message.encoding.c_str());
   }
 }
-} // namespace compressed_image_transport
+}  // namespace turbojpeg_compressed_image_transport

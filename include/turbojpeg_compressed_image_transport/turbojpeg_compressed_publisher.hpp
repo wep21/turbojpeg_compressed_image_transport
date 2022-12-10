@@ -46,6 +46,11 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 
+#ifndef TURBOJPEG_COMPRESSED_IMAGE_TRANSPORT__TURBOJPEG_COMPRESSED_PUBLISHER_HPP_
+#define TURBOJPEG_COMPRESSED_IMAGE_TRANSPORT__TURBOJPEG_COMPRESSED_PUBLISHER_HPP_
+
+#include <turbojpeg.h>
+
 #include <string>
 
 #include <sensor_msgs/msg/image.hpp>
@@ -54,7 +59,6 @@
 
 #include <rclcpp/node.hpp>
 
-#include <turbojpeg.h>
 #include <turbojpeg_compressed_image_transport/turbojpeg_compressed_common.hpp>
 
 namespace turbojpeg_compressed_image_transport
@@ -97,7 +101,9 @@ protected:
   std::string jpeg_quality_param_name_;
   rclcpp::Logger logger_;
   rclcpp::Node * node_;
-  TjhandleUniquePtr tjhandle_; 
+  TjhandleUniquePtr tjhandle_;
 };
 
-} // namespace nvjpeg_compressed_image_transport
+}  // namespace turbojpeg_compressed_image_transport
+
+#endif  // TURBOJPEG_COMPRESSED_IMAGE_TRANSPORT__TURBOJPEG_COMPRESSED_PUBLISHER_HPP_
