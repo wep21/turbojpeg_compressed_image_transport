@@ -49,7 +49,7 @@
 #include <sstream>
 #include <vector>
 
-#include <cv_bridge/cv_bridge.h>  // NOLINT
+#include <cv_bridge/cv_bridge.hpp>
 #include <sensor_msgs/image_encodings.hpp>
 
 #include <rclcpp/exceptions/exceptions.hpp>
