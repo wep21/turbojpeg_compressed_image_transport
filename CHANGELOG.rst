@@ -2,8 +2,8 @@
 Changelog for package turbojpeg_compressed_image_transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.2.1 (2022-12-14)
+------------------
 * fix: replace deprecated header
 * fix: add missing dependency
 * Contributors: Daisuke Nishimatsu
