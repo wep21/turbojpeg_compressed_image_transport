@@ -66,12 +66,11 @@ namespace enc = sensor_msgs::image_encodings;
 void TurbojpegCompressedPublisher::advertiseImpl(
   rclcpp::Node * node,
   const std::string & base_topic,
-  rmw_qos_profile_t custom_qos,
-  rclcpp::PublisherOptions options)
+  rmw_qos_profile_t custom_qos)
 {
   node_ = node;
   using Base = image_transport::SimplePublisherPlugin<sensor_msgs::msg::CompressedImage>;
-  Base::advertiseImpl(node, base_topic, custom_qos, options);
+  Base::advertiseImpl(node, base_topic, custom_qos);
 
   uint ns_len = node->get_effective_namespace().length();
   std::string param_base_name = base_topic.substr(ns_len);
