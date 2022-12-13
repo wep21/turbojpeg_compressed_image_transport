@@ -6,11 +6,13 @@
     encoded as JPEG by turbojpeg.
   </description>
   <maintainer email="border_goldenmarket@yahoo.co.jp">Daisuke Nishiamtsu</maintainer>
-  <license>BSD</license>
+  <license>Apache License 2.0</license>
+  <license>BSD</license> <!-- license of original compressed image transport -->
 
   <author>Patrick Mihelich</author>
   <author>Julius Kammerl</author>
   <author email="dgossow@willowgarage.com">David Gossow</author>
+  <author>Daisuke Nishimatsu</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
