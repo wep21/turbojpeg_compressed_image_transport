@@ -2,8 +2,8 @@
 Changelog for package turbojpeg_compressed_image_transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.2 (2022-12-14)
+------------------
 * fix: rollback to humble api
 * Contributors: Daisuke Nishimatsu
 
