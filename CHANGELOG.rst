@@ -2,6 +2,11 @@
 Changelog for package turbojpeg_compressed_image_transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* chore: remove deprecations (`#1 <https://github.com/wep21/turbojpeg_compressed_image_transport/issues/1>`_)
+* Contributors: Alejandro Hernández Cordero
+
 0.2.1 (2022-12-14)
 ------------------
 * fix: replace deprecated header
