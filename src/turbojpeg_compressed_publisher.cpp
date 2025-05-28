@@ -99,7 +99,7 @@ void TurbojpegCompressedPublisher::advertiseImpl(
 
 void TurbojpegCompressedPublisher::publish(
   const sensor_msgs::msg::Image & message,
-  const PublishFn & publish_fn) const
+  const PublisherT & publisher) const
 {
   // Compressed image message
   sensor_msgs::msg::CompressedImage compressed;
@@ -162,7 +162,7 @@ void TurbojpegCompressedPublisher::publish(
       return;
     }
     // Publish message
-    publish_fn(compressed);
+    publisher->publish(compressed);
   } else {
     RCLCPP_ERROR(
       logger_,
